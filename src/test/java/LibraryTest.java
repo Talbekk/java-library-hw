@@ -41,6 +41,7 @@ public class LibraryTest {
     public void hasCapacity(){
         assertEquals(2, library.getCapacity());
     }
+
     @Test
     public void canAddBookIfUnderCapacity(){
         library.addBookIfUnderCapacity(book);

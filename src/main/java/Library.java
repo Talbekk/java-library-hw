@@ -41,7 +41,11 @@ public class Library {
     }
     }
 
-    public Book removeBook(){
-       return this.collection.remove(0);
+    public Book removeBook() {
+        Book bookRemoved = null;
+        if (this.bookCount() > 0) {
+            bookRemoved = this.collection.remove(0);
+        }
+        return bookRemoved;
     }
 }

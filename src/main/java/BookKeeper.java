@@ -6,6 +6,7 @@ public class BookKeeper {
     private ArrayList<Book> bookCase;
 
     public BookKeeper(String name) {
+
         this.name = name;
         this.bookCase = new ArrayList<Book>();
     }
@@ -21,12 +22,15 @@ public class BookKeeper {
     public void borrowBook(Book book){
         this.bookCase.add(book);
     }
+
     public void returnBook(){
         this.bookCase.remove(0);
     }
-    public void borrowBookFromLibrary(Library library){
-        Book book = library.removeBook();
-        this.borrowBook(book);
-    }
 
+    public void borrowBookFromLibrary(Library library) {
+        if (library.bookCount() > 0) {
+            Book borrowedBook = library.removeBook();
+            this.borrowBook(borrowedBook);
+        }
+    }
 }

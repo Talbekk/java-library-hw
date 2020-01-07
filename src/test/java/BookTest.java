@@ -8,17 +8,21 @@ public class BookTest {
     private Book book;
 
     @Before
+
     public void before(){
         book = new Book("The Lord of the Rings", "JRR Tolkien", "Fantasy");
     }
+
     @Test
     public void hasTitle() {
         assertEquals("The Lord of the Rings", book.getTitle());
     }
+
     @Test
     public void hasAuthor(){
         assertEquals("JRR Tolkien", book.getAuthor());
     }
+
     @Test
     public void hasGenre(){
         assertEquals("Fantasy", book.getGenre());
