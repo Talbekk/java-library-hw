@@ -53,6 +53,12 @@ public class LibraryTest {
         libraryTruck.addBookIfUnderCapacity(book);
         libraryTruck.addBookIfUnderCapacity(book);
         assertEquals(1, libraryTruck.bookCount());
+    }
 
+    @Test
+    public void removeBookFromLibrary(){
+        library.addBookIfUnderCapacity(book);
+        library.removeBook();
+        assertEquals(0, library.bookCount());
     }
 }
