@@ -13,4 +13,13 @@ public class BookKeeper {
     public String getName(){
         return this.name;
     }
+
+    public int numberOfBooks(){
+        return this.bookCase.size();
+    }
+
+    public void borrowBook(Book book){
+        this.bookCase.add(book);
+
+    }
 }
