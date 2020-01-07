@@ -41,10 +41,18 @@ public class LibraryTest {
     public void hasCapacity(){
         assertEquals(2, library.getCapacity());
     }
-
     @Test
     public void canAddBookIfUnderCapacity(){
         library.addBookIfUnderCapacity(book);
             assertEquals(1, library.bookCount());
-        }
     }
+
+    @Test
+    public void cannotAddBookIfAtCapacity(){
+        Library libraryTruck = new Library("Mini Stop", "Everywhere", 1);
+        libraryTruck.addBookIfUnderCapacity(book);
+        libraryTruck.addBookIfUnderCapacity(book);
+        assertEquals(1, libraryTruck.bookCount());
+
+    }
+}
