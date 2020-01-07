@@ -7,11 +7,13 @@ public class BookKeeperTest {
 
     private BookKeeper bookKeeper;
     private Book book;
+    private Library library;
 
     @Before
     public void before(){
         bookKeeper = new BookKeeper("Khan");
         book = new Book("The Lord of the Rings", "JRR Tolkien", "Fantasy");
+        library = new Library("Alexandria", "Egypt", 2);
     }
 
     @Test
@@ -28,5 +30,20 @@ public class BookKeeperTest {
     public void addBook(){
         bookKeeper.borrowBook(book);
         assertEquals(1, bookKeeper.numberOfBooks());
+    }
+
+    @Test
+    public void canReturnBook(){
+        bookKeeper.borrowBook(book);
+        bookKeeper.returnBook();
+        assertEquals(0, bookKeeper.numberOfBooks());
+    }
+
+    @Test
+    public void canBorrowABookFromLibrary(){
+        library.addBookIfUnderCapacity(book);
+        bookKeeper.borrowBookFromLibrary(library);
+        assertEquals(1, bookKeeper.numberOfBooks());
+        assertEquals(0, library.bookCount());
     }
 }
