@@ -11,7 +11,7 @@ public class LibraryTest {
     @Before
 
     public void before(){
-        library = new Library("Alexandria", "Egypt");
+        library = new Library("Alexandria", "Egypt", 2);
         book = new Book("The Lord of the Rings", "JRR Tolkien", "Fantasy");
     }
 
@@ -38,4 +38,7 @@ public class LibraryTest {
     }
 
     @Test
+    public void hasCapacity(){
+        assertEquals(2, library.getCapacity());
+    }
 }

@@ -5,12 +5,14 @@ public class Library {
         private String name;
         private String location;
         private ArrayList<Book> collection;
+        private int capacity;
 
-    public Library(String name, String location) {
+    public Library(String name, String location, int capacity) {
 
         this.name = name;
         this.location = location;
         this.collection = new ArrayList<Book>();
+        this.capacity = capacity;
     }
 
     public String getName(){
@@ -27,5 +29,9 @@ public class Library {
 
     public void addBook(Book book){
         this.collection.add(book);
+    }
+
+    public int getCapacity(){
+        return this.capacity;
     }
 }
